@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var expanded = false
     @State private var showingDateDetail = false
     @State private var showingFavorites = false
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         VStack {
@@ -21,6 +22,7 @@ struct HomeView: View {
                     RetryableImageView(urlString: apod.hdurl ?? apod.url)
                     .frame(maxWidth: 360, maxHeight: 360)
                     .clipShape(RoundedRectangle(cornerRadius: 22))
+                    .shadow(color: .black.opacity(colorScheme == .dark ? 0.3 : 0.1), radius: 8)
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text(apod.title)
@@ -29,11 +31,12 @@ struct HomeView: View {
 
                         Text(apod.date)
                             .font(.caption)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(.white.opacity(0.9))
 
                         if let copy = apod.copyright {
                             Text("© \(copy)")
-                                .foregroundStyle(.white)
+                                .font(.footnote)
+                                .foregroundStyle(.white.opacity(0.8))
                         }
                     }
                     .padding(14)
@@ -43,6 +46,7 @@ struct HomeView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(apod.explanation)
                             .font(.body)
+                            .foregroundStyle(.primary)
                             .lineLimit(expanded ? nil : 4)
                             .animation(.easeInOut, value: expanded)
 
@@ -63,6 +67,7 @@ struct HomeView: View {
                                     RetryableImageView(urlString: item.hdurl ?? item.url)
                                         .frame(width: 140, height: 140)
                                         .clipShape(RoundedRectangle(cornerRadius: 18))
+                                        .shadow(color: .black.opacity(colorScheme == .dark ? 0.2 : 0.08), radius: 6)
                                     
                                     VStack {
                                         Spacer()
@@ -74,7 +79,7 @@ struct HomeView: View {
 
                                             Text(item.date)
                                                 .font(.caption2)
-                                                .foregroundStyle(.white)
+                                                .foregroundStyle(.white.opacity(0.9))
                                         }
                                         .padding(8)
                                     }
@@ -94,6 +99,7 @@ struct HomeView: View {
                     .padding(.top, 40)
             }
         }
+        .background(Color(UIColor.systemBackground))
         .onAppear {
             if viewModel.apod != nil { return }
             viewModel.load()

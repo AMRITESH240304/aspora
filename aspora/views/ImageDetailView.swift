@@ -12,6 +12,7 @@ struct ImageDetailView: View {
     @State private var currentZoom = 0.0
     @State private var totalZoom = 1.0
     @StateObject private var viewModel = ImageDetailViewModel()
+    @Environment(\.colorScheme) var colorScheme
 
     var body: some View {
         VStack {
@@ -21,6 +22,7 @@ struct ImageDetailView: View {
                 RetryableImageView(urlString: apod.hdurl ?? apod.url)
                     .frame(width: 360, height: 360)
                     .clipShape(RoundedRectangle(cornerRadius: 22))
+                    .shadow(color: .black.opacity(colorScheme == .dark ? 0.3 : 0.1), radius: 8)
                     .onTapGesture {
                         showFull = true
                     }
@@ -59,6 +61,9 @@ struct ImageDetailView: View {
             }
             .sheet(isPresented: $showFull) {
                 ZStack {
+                    Color(UIColor.systemBackground)
+                        .ignoresSafeArea()
+                    
                     RetryableImageView(urlString: apod.hdurl ?? apod.url)
                         .scaledToFit()
                         .scaleEffect(currentZoom + totalZoom)
@@ -85,9 +90,11 @@ struct ImageDetailView: View {
             ScrollView {
                 Text(apod.explanation)
                     .font(.body)
+                    .foregroundStyle(.primary)
                     .padding()
             }
         }
+        .background(Color(UIColor.systemBackground))
         .onAppear {
             viewModel.loadFavorites()
         }

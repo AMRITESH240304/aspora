@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FavoriteView: View {
     @StateObject private var viewModel = ImageDetailViewModel()
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationStack {
@@ -16,11 +17,13 @@ struct FavoriteView: View {
                 VStack(spacing: 16) {
                     Image(systemName: "heart.slash")
                         .font(.system(size: 60))
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.secondary)
                     Text("No Favorites Yet")
                         .font(.title2)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.secondary)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color(UIColor.systemBackground))
             } else {
                 ScrollView {
                     VStack(spacing: 16) {
@@ -41,18 +44,20 @@ struct FavoriteView: View {
                                             .lineLimit(2)
                                         Text(apod.date)
                                             .font(.caption2)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.white.opacity(0.9))
                                     }
                                     .padding(8)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .background(.ultraThinMaterial)
                                 }
+                                .shadow(color: .black.opacity(colorScheme == .dark ? 0.3 : 0.1), radius: 8)
                             }
                         }
                     }
                     .padding()
                 }
                 .navigationTitle("Favorites")
+                .background(Color(UIColor.systemBackground))
             }
         }
         .onAppear {
