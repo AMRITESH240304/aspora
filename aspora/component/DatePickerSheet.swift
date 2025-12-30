@@ -37,7 +37,7 @@ struct DatePickerSheet: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
-            .navigationTitle("Select Date")
+            .navigationTitle("Cosmic Calendar")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Close") {

@@ -107,7 +107,7 @@ struct HomeView: View {
         }
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Select Date") {
+                Button("Cosmic Calendar") {
                     viewModel.showDateSheet = true
                 }
             }
