@@ -23,8 +23,5 @@ Copyright information
 - Dark Mode: Full support for dark mode appearance
 - Unit Tests: unit tests for ViewModel
 
-### Video
-<video width="640" height="480" controls>
-  <source src="output.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+### Video Link
+[Link](https://drive.google.com/file/d/13PB7TommR0CgOIo8vC2yVuIj1d9XPHin/view?usp=drive_link)
