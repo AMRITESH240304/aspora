@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		EDC4738F2F03FC4000C7CC63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EDC473592F0287F200C7CC63 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EDC473602F0287F200C7CC63;
+			remoteInfo = aspora;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		EDC473612F0287F200C7CC63 /* aspora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aspora.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDC4738B2F03FC4000C7CC63 /* asporaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = asporaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = aspora;
 			sourceTree = "<group>";
 		};
+		EDC4738C2F03FC4000C7CC63 /* asporaTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = asporaTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EDC4735E2F0287F200C7CC63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDC473882F03FC4000C7CC63 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC473632F0287F200C7CC63 /* aspora */,
+				EDC4738C2F03FC4000C7CC63 /* asporaTests */,
 				EDC473622F0287F200C7CC63 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC473612F0287F200C7CC63 /* aspora.app */,
+				EDC4738B2F03FC4000C7CC63 /* asporaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = EDC473612F0287F200C7CC63 /* aspora.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EDC4738A2F03FC4000C7CC63 /* asporaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDC473912F03FC4000C7CC63 /* Build configuration list for PBXNativeTarget "asporaTests" */;
+			buildPhases = (
+				EDC473872F03FC4000C7CC63 /* Sources */,
+				EDC473882F03FC4000C7CC63 /* Frameworks */,
+				EDC473892F03FC4000C7CC63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EDC473902F03FC4000C7CC63 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				EDC4738C2F03FC4000C7CC63 /* asporaTests */,
+			);
+			name = asporaTests;
+			packageProductDependencies = (
+			);
+			productName = asporaTests;
+			productReference = EDC4738B2F03FC4000C7CC63 /* asporaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +130,10 @@
 				TargetAttributes = {
 					EDC473602F0287F200C7CC63 = {
 						CreatedOnToolsVersion = 26.2;
+					};
+					EDC4738A2F03FC4000C7CC63 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = EDC473602F0287F200C7CC63;
 					};
 				};
 			};
@@ -100,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				EDC473602F0287F200C7CC63 /* aspora */,
+				EDC4738A2F03FC4000C7CC63 /* asporaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EDC4735F2F0287F200C7CC63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EDC473892F03FC4000C7CC63 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +182,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EDC473872F03FC4000C7CC63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EDC473902F03FC4000C7CC63 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EDC473602F0287F200C7CC63 /* aspora */;
+			targetProxy = EDC4738F2F03FC4000C7CC63 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EDC4736A2F0287F300C7CC63 /* Debug */ = {
@@ -306,6 +381,46 @@
 			};
 			name = Release;
 		};
+		EDC473922F03FC4000C7CC63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Noter.asporaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/aspora.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aspora";
+			};
+			name = Debug;
+		};
+		EDC473932F03FC4000C7CC63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Noter.asporaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/aspora.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/aspora";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -323,6 +438,15 @@
 			buildConfigurations = (
 				EDC4736D2F0287F300C7CC63 /* Debug */,
 				EDC4736E2F0287F300C7CC63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDC473912F03FC4000C7CC63 /* Build configuration list for PBXNativeTarget "asporaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDC473922F03FC4000C7CC63 /* Debug */,
+				EDC473932F03FC4000C7CC63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
