@@ -16,9 +16,7 @@ struct ImageDetailView: View {
 
     var body: some View {
         VStack {
-
             ZStack(alignment: .bottomLeading) {
-
                 RetryableImageView(urlString: apod.hdurl ?? apod.url)
                     .frame(width: 360, height: 360)
                     .clipShape(RoundedRectangle(cornerRadius: 22))
@@ -30,11 +28,18 @@ struct ImageDetailView: View {
                 VStack {
                     HStack {
                         Spacer()
-                        Button {
-                            viewModel.toggleFavorite(apod)
-                        } label: {
-                            Image(systemName: viewModel.isFavorite(apod) ? "heart.fill" : "heart")
-                                .foregroundStyle(.red)
+                        HStack(spacing: 12) {
+                            ShareLink(item: URL(string: apod.hdurl ?? apod.url)!) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .foregroundStyle(.blue)
+                            }
+                            
+                            Button {
+                                viewModel.toggleFavorite(apod)
+                            } label: {
+                                Image(systemName: viewModel.isFavorite(apod) ? "heart.fill" : "heart")
+                                    .foregroundStyle(.red)
+                            }
                         }
                         .padding(12)
                     }
