@@ -29,6 +29,9 @@ struct DatePickerSheet: View {
 
                 Button("Fetch APOD") {
                     viewModel.fetchByDate(selected)
+                    if viewModel.errorMessage != nil {
+                        return
+                    }
                     viewModel.showingDateDetail = true
                     dismiss()
                 }
