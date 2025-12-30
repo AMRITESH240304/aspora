@@ -11,17 +11,34 @@ struct ImageDetailView: View {
     @State private var showFull = false
     @State private var currentZoom = 0.0
     @State private var totalZoom = 1.0
+    @StateObject private var viewModel = ImageDetailViewModel()
 
     var body: some View {
         VStack {
 
             ZStack(alignment: .bottomLeading) {
+
                 RetryableImageView(urlString: apod.hdurl ?? apod.url)
                     .frame(width: 360, height: 360)
                     .clipShape(RoundedRectangle(cornerRadius: 22))
                     .onTapGesture {
                         showFull = true
                     }
+
+                VStack {
+                    HStack {
+                        Spacer()
+                        Button {
+                            viewModel.toggleFavorite(apod)
+                        } label: {
+                            Image(systemName: viewModel.isFavorite(apod) ? "heart.fill" : "heart")
+                                .foregroundStyle(.red)
+                        }
+                        .padding(12)
+                    }
+                    Spacer()
+                }
+                .frame(width: 360, height: 360)
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(apod.title)
@@ -70,6 +87,9 @@ struct ImageDetailView: View {
                     .font(.body)
                     .padding()
             }
+        }
+        .onAppear {
+            viewModel.loadFavorites()
         }
     }
 }

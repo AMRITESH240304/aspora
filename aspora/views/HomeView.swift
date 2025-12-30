@@ -11,6 +11,7 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @State private var expanded = false
     @State private var showingDateDetail = false
+    @State private var showingFavorites = false
 
     var body: some View {
         VStack {
@@ -104,6 +105,18 @@ struct HomeView: View {
                     viewModel.showDateSheet = true
                 }
             }
+            
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    showingFavorites = true
+                } label: {
+                    Image(systemName: "heart.text.square")
+                        .font(.title2)
+                }
+            }
+        }
+        .sheet(isPresented: $showingFavorites) {
+            FavoriteView()
         }
         .sheet(isPresented: $viewModel.showDateSheet) {
             DatePickerSheet(viewModel: viewModel)
